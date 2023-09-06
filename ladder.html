@@ -1,0 +1,102 @@
+<html>
+<head>
+<style>
+
+.div1
+{
+    border:2px solid pink;
+    width:380px;
+    margin:100;
+}
+
+    
+</style>
+
+<script>
+  let snakestartpos = [32, 36, 48, 63, 88, 95, 97];
+let snakeendpos = [10, 6, 26, 18, 24, 56, 78];
+
+let ladderstartpos = [1, 4, 8, 21, 28, 50, 71, 88];
+let ladderendpos = [38, 14, 10, 42, 76, 67, 92, 99];
+
+let c1 = 0;
+let c2 = 0;
+
+function randomNumberGenrator1() {
+  let r1 = Math.floor(Math.random() * 6) + 1;
+  c1 = c1 + r1;
+  if (c1 > 100) {
+    c1 = 100;
+  }
+  document.getElementById("p1").innerHTML = c1;
+  document.getElementById("b1").disabled = true;
+  document.getElementById("b2").disabled = false;
+  checkWin(1);
+}
+
+function randomNumberGenrator2() {
+  let r1 = Math.floor(Math.random() * 6) + 1;
+  c2 = c2 + r1;
+  if (c2 > 100) {
+    c2 = 100;
+  }
+  document.getElementById("p2").innerHTML = c2;
+  document.getElementById("b2").disabled = true;
+  document.getElementById("b1").disabled = false;
+  checkWin(2);
+}
+
+function checkWin(player) {
+  if (player === 1 && c1 === 100) {
+    alert("Congratulations! Player 1 wins!");
+    disableButtons();
+  } else if (player === 2 && c2 === 100) {
+    alert("Congratulations! Player 2 wins!");
+    disableButtons();
+  }
+}
+
+function disableButtons() {
+  document.getElementById("b1").disabled = true;
+  document.getElementById("b2").disabled = true;
+}
+
+</script>
+
+
+</head>
+<body >
+
+
+
+
+
+<div class="div1">
+        <h1 > Player 1 </h1>
+
+        <h1 id="p1">0</h1>
+
+        <br>
+        <button id="b1"  onclick="randomNumberGenrator1()" >move</button>
+        <div>At place : <h2 id="t1"></h2></div>
+
+</div>
+
+
+<div class="div1">
+        <h1 > Player 2 </h1>
+
+        <h1 id="p2">0</h1>
+
+        <br>
+        <button onclick="randomNumberGenrator2()" id="b2" onclick="" >move</button>
+        <div>At place : <p id="t2"></p></div>
+        
+</div>
+
+
+</body>
+
+
+
+</html>
